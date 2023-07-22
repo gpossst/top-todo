@@ -1,0 +1,93 @@
+#content {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#header {
+    background-color: bisque;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 20px 9px 20px;
+}
+
+.pfp {
+    width: 45px;
+    height: auto;
+}
+
+#logo {
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 900;
+    font-size: 22px;
+}
+
+#middle {
+    display: flex;
+    height: 100%;
+}
+
+#sidebar {
+    width: 140px;
+    align-items: center;
+    background-color: skyblue;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20px;
+}
+
+#sidebar-header {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    font-size: 19px;
+}
+
+#list {
+    margin: 20px;
+    width: 100%;
+}
+
+#list-header {
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 15px;
+}
+
+.list-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    font-size: 19px;
+}
+
+#new-item {
+    border: none;
+    border-radius: 2px;
+    background-color: skyblue;
+    width: 25px;
+    height: 25px;
+    margin-top: -5 px;
+}
+
+.grid-header {
+    font-weight: 600;
+    margin: 5px 0px;
+}
+
+#populated-list {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+#footer {
+    margin-top: auto;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    padding: 7px;
+}
