@@ -31,12 +31,12 @@
 
 #sidebar {
     width: 140px;
-    align-items: center;
     background-color: skyblue;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
-    padding-top: 20px;
+    padding: 20px 0px;
+    flex-direction: column;
 }
 
 #sidebar-header {
@@ -48,6 +48,12 @@
 #list {
     margin: 20px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#inputs {
+    margin-top: auto;
 }
 
 #list-header {
@@ -68,7 +74,7 @@
     background-color: skyblue;
     width: 25px;
     height: 25px;
-    margin-top: -5 px;
+    margin-top: -5px;
 }
 
 .grid-header {
@@ -82,6 +88,30 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
+form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input-class {
+    display: flex;
+    flex-direction: column;
+}
+
+#inputs {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#form-submit {
+    border: none;
+    border-radius: 3px;
+    background-color: skyblue;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
 #footer {
     margin-top: auto;
     background-color: bisque;
@@ -90,4 +120,12 @@
     font-family: 'Courier New', Courier, monospace;
     font-weight: 600;
     padding: 7px;
+}
+
+label {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#new-project {
+    width: 90%;
 }

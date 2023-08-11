@@ -17,15 +17,49 @@
             <div id="sidebar">
                 <h2 id="sidebar-header">Projects</h2>
                 <ul id="project list">
-
+                    <!-- gets populated with projects -->
                 </ul>
+                <div>
+                    <label for="new-project">New Project</label>
+                    <input type="text" name="new-project" id="new-project">
+                    <button>+</button>
+                </div>
             </div>
             <div id="list">
                 <div id="list-header">
                     <div class="list-title">List Title Here</div>
-                    <button id="new-item">+</button>
                 </div>
                 <div id="populated-list"></div>
+                <form action="post" id="inputs">
+                    <div class="input-class">
+                        <label for="item-name">Item:</label>
+                        <input type="text" name="item-name" id="item-name">
+                    </div>
+
+                    <div class="input-class">
+                        <label for="item-desc">Description:</label>
+                        <input type="text" name="item-desc" id="item-desc">
+                    </div>
+
+                    <div class="input-class">
+                        <label for="due-date">Due Date:</label>
+                        <input type="date" name="due-date" id="due-date">
+                    </div>
+
+                    <div class="input-class">
+                        <label for="item-priority">Priority:</label>
+                        <input type="number" name="item-priority" id="item-priority">
+                    </div>
+
+                    <div class="input-class">
+                        <label for="item-notes">Notes:</label>
+                        <input type="text" name="item-notes" id="item-notes">
+                    </div>
+
+                    <div class="input-class">
+                        <button type="submit" id="form-submit">+</button>
+                    </div>
+                </form>
             </div>
         </div>
         <div id="footer">

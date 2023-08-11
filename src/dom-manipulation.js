@@ -1,19 +1,28 @@
+import { factories } from "./todos";
+
 // Assigns all necessary elements to keys in object
 export const elements = {
-    newItem: document.querySelector('#new-item'),
     listContainer: document.querySelector('#list'),
     list: document.querySelector('#populated-list'),
-    gridHeader: document.querySelector('#grid-header')
+    gridHeader: document.querySelector('#grid-header'),
+    form: document.querySelector('form'),
+    itemName: document.querySelector('#item-name'),
+    itemDesc: document.querySelector('#item-desc'),
+    itemDue: document.querySelector('#due-date'),
+    itemPriority: document.querySelector("#item-priority"),
+    itemNotes: document.querySelector('#item-notes')
 }
 
 // Funcitons for DOM Manipulation
 export const domManipulation = {
     clearContainer: function(container) {
+        // Clears the container provided as an argument
         while(container.firstChild){
             container.removeChild(container.firstChild);
         }
     },
     populateGridTitles: function(container) {
+        // Populates grid titles
         const titles = ['Item', 'Description', 'Due Date', 'Priority', 'Notes']
         for (let i = 0; i < titles.length; i++){
             const div = document.createElement('div');
@@ -43,7 +52,10 @@ export const domManipulation = {
 
 // Event listeners for objects
 export function domSetup () {
-    elements.newItem.addEventListener('click', event => {
-        domManipulation.clearContainer(elements.list)
-    });
+    // Applies event listeners to buttons
+    elements.form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // make the todo object
+        const newObject = factories.toDoFactory(elements.itemName.value, elements.itemDesc.value, elements.itemDue.value, elements.itemPriority.value, elements.itemNotes.value)
+    })
 }
