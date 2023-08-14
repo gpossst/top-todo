@@ -37,7 +37,7 @@ export const factories = {
         if (!item.notes) {
             item.notes = 'None'
         }
-        data.currentProject.items.push(item)
+        data.currentProject.items.push(item);
         return item
     },
     // builds new projects
@@ -49,4 +49,10 @@ export const factories = {
         data.projects[newProject.title] = newProject;
         return newProject;
     }, 
+}
+
+export const dataGrab = {
+    getCurrent: function() {return data.currentProject},
+    changeCurrent: function(newData) {data.currentProject = newData},
+    addToCurrent: function(newItem) {data.currentProject.items.push(newItem)}
 }

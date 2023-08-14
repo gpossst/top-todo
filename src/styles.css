@@ -34,7 +34,7 @@
     background-color: skyblue;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     padding: 20px 0px;
     flex-direction: column;
 }
@@ -57,7 +57,7 @@
 }
 
 #list-header {
-    display: flex;
+    display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 15px;
 }
