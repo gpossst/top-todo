@@ -42,7 +42,7 @@ export const factories = {
         if (!item.notes) {
             item.notes = 'None'
         }
-        data.currentProject.items.push(item);
+        dataGrab.addToCurrent(item);
         return item
     },
     // builds new projects
