@@ -1,4 +1,4 @@
-import { factories, dataGrab, data } from "./todos";
+import { factories, dataGrab, data, toDoMethods } from "./todos";
 
 // Assigns all necessary elements to keys in object
 export const elements = {
@@ -10,7 +10,8 @@ export const elements = {
     itemDesc: document.querySelector('#item-desc'),
     itemDue: document.querySelector('#due-date'),
     itemPriority: document.querySelector("#item-priority"),
-    itemNotes: document.querySelector('#item-notes')
+    itemNotes: document.querySelector('#item-notes'),
+    projectList: document.querySelector('#project-list')
 }
 
 // Funcitons for DOM Manipulation
@@ -45,8 +46,20 @@ export const domManipulation = {
         this.populateGridTitles(container)
         this.populateItems(data, container)
     },
+    populateProjects: function(data, container) {
+        // Populates given container with objects in array from data
+        for(let i = 0; i < data.length; i++){
+            const div = document.createElement('div');
+            div.textContent = data[i];
+            div.addEventListener('click', (e) => {
+                dataGrab.changeCurrent(data[i])
+            })
+            container.appendChild(div);
+        }
+    },
     populateSidebar: function(data, container) {
         // clear and refill sidebar info
+        this.populateProjects(data, container)
     },
 }
 

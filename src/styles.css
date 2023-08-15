@@ -45,6 +45,22 @@
     font-size: 19px;
 }
 
+#project-list {
+    display: flex;
+    margin-bottom: auto;
+}
+
+#project-list > div {
+    font-size: 16px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+#project-list > div:hover {
+    background-color: bisque;
+    padding: 4px 7px;
+}
+
 #list {
     margin: 20px;
     width: 100%;

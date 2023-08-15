@@ -1,6 +1,6 @@
 export const data = {
     projects: {},
-    currentProject: {}
+    currentProject: {},
 }
 
 // Holds all to-do object methods
@@ -19,7 +19,12 @@ export const toDoMethods = {
     // puts new project into projects object
     addToProjects: function(newProject) {
         data.projects[newProject.title] = newProject
-    }
+    },
+
+    changeCurrent: function(newTitle) {
+        dataGrab.addToProjects(data.currentProject);
+        data.currentProject = data.projects[newTitle]
+    },
 }
 
 
@@ -46,13 +51,15 @@ export const factories = {
             title,
             items: [],
         }
-        data.projects[newProject.title] = newProject;
+        dataGrab.addToProjects(newProject)
         return newProject;
     }, 
 }
 
 export const dataGrab = {
     getCurrent: function() {return data.currentProject},
+    getProjects: function() {return data.projects},
     changeCurrent: function(newData) {data.currentProject = newData},
-    addToCurrent: function(newItem) {data.currentProject.items.push(newItem)}
+    addToCurrent: function(newItem) {data.currentProject.items.push(newItem)},
+    addToProjects: function(newProject) {data.currentProject[newProject.title] = newProject}
 }
