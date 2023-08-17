@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js" defer></script>
+    <title>ToDoing</title>
+</head>
+<body>
+    <div id="content">
+        <div id="header">
+            <div id="logo">ToDoing</div>
+            <div id="save-projects">save</div>
+            <img class="pfp" src="/src/img/profilePic.png" alt="Profile Picture">
+        </div>
+        <div id="middle">
+            <div id="sidebar">
+                <h2 id="sidebar-header">Projects</h2>
+                <div id="project-list">
+                    <!-- gets populated with projects -->
+                </div>
+                <div>
+                    <label for="new-project">New Project</label>
+                    <input type="text" name="new-project" id="new-project">
+                    <button id="project-submit">+</button>
+                </div>
+            </div>
+            <div id="list">
+                <div id="list-header">
+                    <div class="list-title">List Title Here</div>
+                </div>
+                <div id="populated-list">
+                    
+                </div>
+                <div id="list-grid">
+
+                </div>
+                <form action="post" id="inputs">
+                    <div class="input-class">
+                        <label for="item-name">Item:</label>
+                        <input type="text" name="item-name" id="item-name">
+                    </div>
+
+                    <div class="input-class">
+                        <label for="item-desc">Description:</label>
+                        <input type="text" name="item-desc" id="item-desc">
+                    </div>
+
+                    <div class="input-class">
+                        <label for="due-date">Due Date:</label>
+                        <input type="date" name="due-date" id="due-date">
+                    </div>
+
+                    <div class="input-class">
+                        <label for="item-priority">Priority:</label>
+                        <input type="number" name="item-priority" id="item-priority">
+                    </div>
+
+                    <div class="input-class">
+                        <label for="item-notes">Notes:</label>
+                        <input type="text" name="item-notes" id="item-notes">
+                    </div>
+
+                    <div class="input-class">
+                        <button type="submit" id="form-submit">+</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="footer">
+            <h2>SAVING SAVES ONLY ITEMS IN SELECTED PROJECT</h2>
+        </div>
+    </div>
+</body>
+</html>
