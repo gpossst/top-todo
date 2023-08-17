@@ -1,4 +1,5 @@
 import { factories, dataGrab, data, toDoMethods } from "./todos";
+import { storageManipulation } from "./storage-manipulation";
 
 // Assigns all necessary elements to keys in object
 export const elements = {
@@ -11,7 +12,11 @@ export const elements = {
     itemDue: document.querySelector('#due-date'),
     itemPriority: document.querySelector("#item-priority"),
     itemNotes: document.querySelector('#item-notes'),
-    projectList: document.querySelector('#project-list')
+    projectList: document.querySelector('#project-list'),
+    newProject: document.querySelector('#new-project'),
+    projectSubmit: document.querySelector('#project-submit'),
+    listTitle: document.querySelector('.list-title'),
+    saveProjects: document.querySelector('#save-projects')
 }
 
 // Funcitons for DOM Manipulation
@@ -42,6 +47,7 @@ export const domManipulation = {
         }
     },
     populateList: function(data, container) {
+        // condenses 3 other list functions
         this.clearContainer(container)
         this.populateGridTitles(container)
         this.populateItems(data, container)
@@ -52,13 +58,16 @@ export const domManipulation = {
             const div = document.createElement('div');
             div.textContent = data[i];
             div.addEventListener('click', (e) => {
-                dataGrab.changeCurrent(data[i])
+                toDoMethods.changeCurrent(data[i])
+                elements.listTitle.textContent = dataGrab.getCurrent().title;
+                domManipulation.populateList(dataGrab.getCurrent().items, elements.list);
             })
             container.appendChild(div);
         }
     },
     populateSidebar: function(data, container) {
         // clear and refill sidebar info
+        this.clearContainer(container)
         this.populateProjects(data, container)
     },
 }
@@ -72,7 +81,18 @@ export function domSetup () {
         if (elements.itemName.value != '' && elements.itemDesc.value != '' && elements.itemDue.value != '' && elements.itemPriority.value != '') {
             // make the todo object
             const newObject = factories.toDoFactory(elements.itemName.value, elements.itemDesc.value, elements.itemDue.value, elements.itemPriority.value, elements.itemNotes.value);
-            domManipulation.populateList(dataGrab.getCurrent().items, elements.list)
+            domManipulation.populateList(dataGrab.getCurrent().items, elements.list);
         }
+    });
+    elements.projectSubmit.addEventListener('click', (e) => {
+        if (elements.newProject.value != '') {
+            // make the project object
+            const createProject = factories.projectFactory(elements.newProject.value);
+            domManipulation.populateSidebar(Object.keys(dataGrab.getProjects()), elements.projectList);
+            console.log(Object.keys(dataGrab.getProjects()))
+        }
+    });
+    elements.saveProjects.addEventListener('click', (e) => {
+        storageManipulation.saveProjects()
     });
 }

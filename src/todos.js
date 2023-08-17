@@ -1,3 +1,5 @@
+import { elements } from "./dom-manipulation"
+
 export const data = {
     projects: {},
     currentProject: {},
@@ -51,7 +53,8 @@ export const factories = {
             title,
             items: [],
         }
-        dataGrab.addToProjects(newProject)
+        toDoMethods.addToProjects(newProject)
+        dataGrab.changeCurrent(newProject)
         return newProject;
     }, 
 }
@@ -59,7 +62,11 @@ export const factories = {
 export const dataGrab = {
     getCurrent: function() {return data.currentProject},
     getProjects: function() {return data.projects},
-    changeCurrent: function(newData) {data.currentProject = newData},
+    changeCurrent: function(newData) {
+        data.currentProject = newData;
+        elements.listTitle.textContent = this.getCurrent().title;
+    },
     addToCurrent: function(newItem) {data.currentProject.items.push(newItem)},
-    addToProjects: function(newProject) {data.currentProject[newProject.title] = newProject}
+    addToProjects: function(newProject) {data.currentProject[newProject.title] = newProject},
+    updateProjects: function(savedProjects) {data.projects = savedProjects}
 }
