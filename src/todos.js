@@ -68,5 +68,8 @@ export const dataGrab = {
     },
     addToCurrent: function(newItem) {data.currentProject.items.push(newItem)},
     addToProjects: function(newProject) {data.currentProject[newProject.title] = newProject},
-    updateProjects: function(savedProjects) {data.projects = savedProjects}
+    updateProjects: function(savedProjects) {data.projects = savedProjects},
+    deleteItem: function(arrayNum) {
+        data.currentProject.items.splice(arrayNum, 1)
+    }
 }

@@ -16,7 +16,7 @@ export const elements = {
     newProject: document.querySelector('#new-project'),
     projectSubmit: document.querySelector('#project-submit'),
     listTitle: document.querySelector('.list-title'),
-    saveProjects: document.querySelector('#save-projects')
+    saveProjects: document.querySelector('#save-projects'),
 }
 
 // Funcitons for DOM Manipulation
@@ -27,7 +27,7 @@ export const domManipulation = {
     },
     populateGridTitles: function(container) {
         // Populates grid titles
-        const titles = ['Item', 'Description', 'Due Date', 'Priority', 'Notes']
+        const titles = ['Item', 'Description', 'Due Date', 'Priority', 'Notes', 'Delete']
         for (let i = 0; i < titles.length; i++){
             const div = document.createElement('div');
             div.classList.add('grid-header')
@@ -44,6 +44,15 @@ export const domManipulation = {
                 div.innerText = `${current[property]}`;
                 container.appendChild(div)
             }
+            const button = document.createElement('button');
+            button.id = 'button'
+            button.innerText = 'delete';
+            container.appendChild(button);
+            button.addEventListener('click', (e) => {
+                dataGrab.deleteItem(i);
+                this.populateList(dataGrab.getCurrent().items, elements.list);
+                console.log(dataGrab.getCurrent())
+            })
         }
     },
     populateList: function(data, container) {
